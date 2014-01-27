@@ -2,7 +2,7 @@ classdef main < handle
 % main.m class for Expression and similar tasks.
     
     properties
-        debug = 1;
+        debug = 0;
         subjinfo
         block = {'f1','f2','f3','m1','m2','m3'};      
         order;
@@ -130,10 +130,10 @@ classdef main < handle
             % Output: monitor data structure
             
             if obj.debug
-                % Desktop debug
+                Desktop debug
                 whichScreen = max(Screen('Screens'));
             else
-                % Find out how many screens and use smallest screen number (laptop screen).
+                Find out how many screens and use smallest screen number (laptop screen).
                 whichScreen = min(Screen('Screens'));
             end
             
