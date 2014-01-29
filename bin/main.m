@@ -47,7 +47,14 @@ classdef main < handle
             end
             
             if ismac
-                [~,d] = system(['ls ' path filesep '*' name '*' ext ' | xargs -n1 basename']);
+                %                 [~,d] = system(['ls ' path filesep '*' name '*' ext ' | xargs -n1 basename']);
+                if isempty(name) && isempty(ext)
+                    [~,d] = system(['ls ' path filesep '| xargs -n1 basename']);
+                elseif isempty(ext)
+                    [~,d] = system(['ls ' path filesep '*' name '* | xargs -n1 basename']);
+                else
+                    [~,d] = system(['ls ' path filesep '*' name '*' ext '| xargs -n1 basename']);
+                end
             elseif ispc
                 [~,d] = system(['dir /b "' path '"' filesep '*' name '*' ext]);
             else
@@ -130,10 +137,10 @@ classdef main < handle
             % Output: monitor data structure
             
             if obj.debug
-                Desktop debug
+%                 Desktop debug
                 whichScreen = max(Screen('Screens'));
             else
-                Find out how many screens and use smallest screen number (laptop screen).
+%                 Find out how many screens and use smallest screen number (laptop screen).
                 whichScreen = min(Screen('Screens'));
             end
             
