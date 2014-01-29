@@ -14,7 +14,7 @@ classdef main < handle
         fix = 1;
         abort = 0;
         pracadd = 0; % Additional practice durations, added to timelim 1 and 3
-        timelim = [7 .75 2]; % Response duration (1), ITI (2), Display duration (3 - optional)
+        timelim = [3 .75 2]; % Response duration (1), ITI (2), Display duration (3 - optional)
         imgsize = [411 276 3];
 %         rescale = 2/3; % Selected to fit an upper_buffer and middle_buffer of 100 pixels
         monitor
